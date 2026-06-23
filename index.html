@@ -13,16 +13,15 @@
 <link rel="apple-touch-icon" href="./icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
-<title>Prezen｜奈良文化プレゼン</title>
+<title>Presentation｜奈良文化高等学校</title>
 <style>
 *{box-sizing:border-box}
 html,body{
   margin:0;width:100%;height:100%;overflow:hidden;
   font-family:"Yu Gothic","Hiragino Sans","Noto Sans JP",sans-serif;
   background:
-    radial-gradient(circle at 20% 18%,rgba(213,162,74,.18),transparent 30%),
-    radial-gradient(circle at 80% 62%,rgba(122,164,202,.10),transparent 34%),
-    linear-gradient(135deg,#05080f,#07101f 58%,#111827);
+    linear-gradient(135deg,rgba(5,8,15,.78),rgba(7,16,31,.70)),
+    url("https://sumida-passion.github.io/game-assets/images/hpmain.jpg") center center/cover no-repeat;
   color:#fff8ea;
   touch-action:manipulation;
   overscroll-behavior:none;
@@ -34,53 +33,38 @@ body::before{
                    linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px);
   background-size:42px 42px;
 }
-#menu{
-  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-  padding:42px;z-index:10;
-  background:
-    linear-gradient(135deg,rgba(5,8,15,.78),rgba(7,16,31,.70)),
-    url("https://sumida-passion.github.io/game-assets/images/hpmain.jpg") center center/cover no-repeat;
-}
-#menu::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;
   background:
     radial-gradient(circle at 18% 78%,rgba(213,162,74,.20),transparent 32%),
     linear-gradient(0deg,rgba(5,8,15,.56),rgba(5,8,15,.12) 50%,rgba(5,8,15,.50));
+}
+#menu{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:42px;z-index:10;
 }
 .menu-card{
   position:relative;z-index:2;
   width:min(1050px,92vw);height:min(620px,82vh);
   border-radius:34px;padding:56px;
-  background:linear-gradient(135deg,rgba(255,248,234,.10),rgba(255,248,234,.045));
+  background:linear-gradient(135deg,rgba(255,248,234,.12),rgba(255,248,234,.05));
   border:1px solid rgba(213,162,74,.34);
   box-shadow:0 30px 90px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.06);
   display:flex;flex-direction:column;justify-content:center;
+  backdrop-filter:blur(2px);
 }
 .kicker{color:#f2c978;font-weight:950;letter-spacing:.16em;font-size:1.1rem;margin-bottom:18px}
-h1{font-size:clamp(3.3rem,7vw,6.6rem);line-height:1.05;margin:0 0 18px;font-weight:950;letter-spacing:.05em}
-.sub{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.6;color:rgba(255,248,234,.82);font-weight:800;margin-bottom:42px}
+h1{font-size:clamp(3.3rem,7vw,6.6rem);line-height:1.05;margin:0 0 18px;font-weight:950;letter-spacing:.04em}
+.sub{font-size:clamp(1.2rem,2vw,1.75rem);line-height:1.6;color:rgba(255,248,234,.86);font-weight:850;margin-bottom:42px}
 .buttons{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-button{
-  border:none;cursor:pointer;border-radius:999px;padding:22px 28px;
+a.button{
+  display:flex;align-items:center;justify-content:center;text-decoration:none;
+  border-radius:999px;padding:22px 28px;
   font-size:clamp(1.25rem,2vw,1.8rem);font-weight:950;
   color:#111827;background:#f2c978;box-shadow:0 18px 34px rgba(0,0,0,.28);
   touch-action:manipulation;
 }
-button.secondary{background:rgba(255,248,234,.12);color:#fff8ea;border:1px solid rgba(242,201,120,.36)}
-#appFrame{
-  position:fixed;inset:0;width:100%;height:100%;border:0;display:none;background:#05080f;z-index:20;
-}
-#homeBtn{
-  position:fixed;left:14px;bottom:14px;z-index:30;display:none;
-  padding:10px 14px;border-radius:999px;font-size:.9rem;
-  background:rgba(7,16,31,.72);color:#fff8ea;border:1px solid rgba(242,201,120,.35);
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-}
-.fadeCover{
-  position:fixed;inset:0;z-index:25;pointer-events:none;opacity:0;
-  background:#05080f;transition:opacity .45s ease;
-}
-.fadeCover.show{opacity:1}
+a.button.secondary{background:rgba(255,248,234,.12);color:#fff8ea;border:1px solid rgba(242,201,120,.36)}
 @media(max-width:900px){.buttons{grid-template-columns:1fr}.menu-card{padding:34px}}
 </style>
 </head>
@@ -91,52 +75,12 @@ button.secondary{background:rgba(255,248,234,.12);color:#fff8ea;border:1px solid
     <h1>Presentation</h1>
     <div class="sub">探究説明から学校紹介まで、<br>ひとつのプレゼンテーションでつなぐ。</div>
     <div class="buttons">
-      <button id="startFull">探究説明から始める</button>
-      <button id="startSyokai" class="secondary">学校全体図から始める</button>
+      <a class="button" href="./tankyu2.html">探究説明から始める</a>
+      <a class="button secondary" href="./syokai.html">学校全体図から始める</a>
     </div>
   </div>
 </section>
-<iframe id="appFrame" title="Prezen content"></iframe>
-<button id="homeBtn">MENU</button>
-<div id="fadeCover" class="fadeCover"></div>
-
 <script>
-const menu = document.getElementById('menu');
-const frame = document.getElementById('appFrame');
-const homeBtn = document.getElementById('homeBtn');
-const fade = document.getElementById('fadeCover');
-
-function showFrame(src){
-  frame.src = src;
-  frame.style.display = 'block';
-  menu.style.display = 'none';
-  homeBtn.style.display = 'block';
-}
-function goTankyu(){
-  showFrame('./tankyu2.html');
-}
-function goSyokai(direct=true){
-  fade.classList.add('show');
-  setTimeout(()=>{
-    showFrame('./syokai.html' + (direct ? '#direct' : ''));
-    setTimeout(()=>fade.classList.remove('show'), 180);
-  }, 420);
-}
-document.getElementById('startFull').addEventListener('click', goTankyu);
-document.getElementById('startSyokai').addEventListener('click', ()=>goSyokai(false));
-homeBtn.addEventListener('click', ()=>{
-  frame.style.display = 'none';
-  frame.src = 'about:blank';
-  menu.style.display = 'flex';
-  homeBtn.style.display = 'none';
-});
-
-window.addEventListener('message', (ev)=>{
-  if(ev.data && ev.data.type === 'PREZEN_GO_SYOKAI'){
-    goSyokai(true);
-  }
-});
-
 /* iPad PWA presentation guard */
 (function(){
   let lastTouchEnd = 0;
@@ -150,7 +94,6 @@ window.addEventListener('message', (ev)=>{
   document.addEventListener('gestureend', e=>e.preventDefault(), {passive:false});
   document.addEventListener('contextmenu', e=>e.preventDefault());
 })();
-
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 }

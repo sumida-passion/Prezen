@@ -969,8 +969,18 @@ if ('serviceWorker' in navigator) {
 </script>
 
 
+<style>
+.prezen-menu-link{
+  position:fixed;left:14px;bottom:14px;z-index:9999;
+  padding:10px 15px;border-radius:999px;
+  background:rgba(7,16,31,.74);color:#fff8ea;
+  border:1px solid rgba(242,201,120,.35);
+  font-weight:950;font-size:.9rem;text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+</style>
+<a class="prezen-menu-link" href="./index.html">MENU</a>
 <script>
-/* Prezen bridge: direct mode skips Syokai opening cover */
 (function(){
   function directStart(){
     if(location.hash === '#direct'){

@@ -2494,7 +2494,7 @@ img, a, button {
 <section class="slide" id="finalSlide">
   <div class="card final-card" id="finalHpCard" role="link" tabindex="0" aria-label="奈良文化高校公式HPを開く">
     <img src="https://sumida-passion.github.io/game-assets/images/hpmain.jpg" alt="奈良文化高校">
-    <a id="hpLink" class="final-link" href="#" data-prezen-syokai="true" target="_blank" rel="noopener">奈良文化高校 公式HPへ →</a>
+    <a id="hpLink" class="final-link" href="./syokai.html#direct" target="_blank" rel="noopener">奈良文化高校 公式HPへ →</a>
   </div>
 </section>
 <script>
@@ -2627,7 +2627,7 @@ if(hpLink){
   const goHp=e=>{
     e.preventDefault();
     e.stopPropagation();
-    window.location.href="#" data-prezen-syokai="true";
+    window.location.href="./syokai.html#direct";
   };
   hpLink.addEventListener("click",goHp);
   hpLink.addEventListener("touchend",goHp,{passive:false});
@@ -2642,7 +2642,7 @@ if(hpLink){
     e.preventDefault();
     e.stopPropagation();
     if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-    window.location.assign("https://sumida-passion.github.io/syokai/");
+    window.location.assign("./syokai.html#direct");
     return false;
   };
   hp.addEventListener("click", openHp, true);
@@ -2654,7 +2654,7 @@ if(hpLink){
 
 // FINAL HP LINK FIX: 最後のカード・ボタンは必ず公式HPを開く
 (function(){
-  const url="https://sumida-passion.github.io/syokai/";
+  const url="./syokai.html#direct";
   const hp=document.getElementById("hpLink");
   const card=document.getElementById("finalHpCard");
   function openHp(e){
@@ -2734,23 +2734,17 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
-<script>
-/* Prezen bridge: Tankyu2 end → Syokai inside the same PWA */
-(function(){
-  function goSyokai(e){
-    if(e) e.preventDefault();
-    if(window.parent && window.parent !== window){
-      window.parent.postMessage({type:'PREZEN_GO_SYOKAI'}, '*');
-    }else{
-      location.href = './syokai.html#direct';
-    }
-  }
-  document.addEventListener('click', function(e){
-    const a = e.target.closest && e.target.closest('[data-prezen-syokai="true"]');
-    if(a) goSyokai(e);
-  }, true);
-})();
-</script>
+<style>
+.prezen-menu-link{
+  position:fixed;left:14px;bottom:14px;z-index:9999;
+  padding:10px 15px;border-radius:999px;
+  background:rgba(7,16,31,.74);color:#fff8ea;
+  border:1px solid rgba(242,201,120,.35);
+  font-weight:950;font-size:.9rem;text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+</style>
+<a class="prezen-menu-link" href="./index.html">MENU</a>
 
 </body>
 </html>
